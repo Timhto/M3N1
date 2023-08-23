@@ -23,12 +23,15 @@ public class PessoaJuridicaRepo {
 
     }
 
-    public void excluir(int id) {
-        PessoaJuridica pessoaJuridica = obter(id);
-        if (pessoaJuridica != null) {
-            pessoasJuridicas.remove(pessoaJuridica);
+   public boolean excluir(int id) {
+    for (int i = 0; i < pessoasJuridicas.size(); i++) {
+        if (pessoasJuridicas.get(i).getId() == id) {
+            pessoasJuridicas.remove(i);
+            return true; // Retorna true se a exclusão for bem-sucedida
         }
     }
+    return false; // Retorna false se a pessoa não for encontrada
+}
 
     public PessoaJuridica obter(int id) {
 

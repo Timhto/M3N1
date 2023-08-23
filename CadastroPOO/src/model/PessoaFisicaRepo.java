@@ -23,12 +23,15 @@ public class PessoaFisicaRepo {
 
     }
 
-    public void excluir(int id) {
-        PessoaFisica pessoaFisica = obter(id);
-        if (pessoaFisica != null) {
-            pessoasFisicas.remove(pessoaFisica);
+   public boolean excluir(int id) {
+    for (int i = 0; i < pessoasFisicas.size(); i++) {
+        if (pessoasFisicas.get(i).getId() == id) {
+            pessoasFisicas.remove(i);
+            return true; // Retorna true se a exclusão for bem-sucedida
         }
     }
+    return false; // Retorna false se a pessoa não for encontrada
+}
 
     public PessoaFisica obter(int id) {
         return null;
